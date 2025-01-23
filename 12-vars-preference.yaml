@@ -14,4 +14,4 @@
     vars:
       greet: "task level"
     ansible.builtin.debug:
-      msg: "Hello from {{greet}}"
+      msg: "Hello from {{ greet }}"
