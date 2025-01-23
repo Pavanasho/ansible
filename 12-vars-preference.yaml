@@ -1,0 +1,17 @@
+- name: variables from inventory
+  hosts: local
+  connection: local
+  vars:
+    greet: "play level"
+  vars_files:
+  - course.yaml
+  vars_prompt:
+  - name: greet
+    prompt: Please enter message
+    private: false  
+  tasks:
+  - name: print course information
+    vars:
+      greet: "task level"
+    ansible.builtin.debug:
+      msg: "Hello from {{greet}}"
