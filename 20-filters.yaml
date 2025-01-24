@@ -46,6 +46,6 @@
 
   - name: min and max numbers in list
     vars:
-       numbers: [ 10, 20 30, 40, 50 ]
+      numbers: [ 10, 20 30, 40, 50 ]
     ansible.builtin.debug:
       msg: "Min is: {{ numbers | min }}, Max is: {{ numbers | max}}"                     
