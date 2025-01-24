@@ -2,7 +2,7 @@
   hosts: web
   become: yes
   tasks:
-  - name: install "{{ item }}" packages
+  - name: 'install "{{ item }}" packages'
     ansible.builtin.packages:
       name: "{{ item }}"
       state: present
@@ -11,4 +11,3 @@
     - gcc
     - zip
     - git
-      
