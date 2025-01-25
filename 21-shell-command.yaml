@@ -12,5 +12,4 @@
 
   - name: print result
     ansible.builtin.debug:
-      msg: "{{ c_result }}" 
-      msg: "{{resul}}" 
+      msg: "{{ c_result }}, {{resul}}" 
