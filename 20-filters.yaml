@@ -52,4 +52,4 @@
     vars:
       ipss: "1124242"
     ansible.builtin.debug:
-      msg: "{{ ipss|ansible.utils.ipaddr }}"                         
+      msg: "{{ ipss | ansible.utils.ipaddr }}"                         
