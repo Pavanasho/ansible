@@ -52,6 +52,6 @@
     tags:
     - ipcheck
     vars:
-      ip: "355.93.273.16"
+      ip: "172.31.82.125"
     ansible.builtin.debug:
       msg: "ip is {{ ip | ansible.utils.ipaddr }}"                         
