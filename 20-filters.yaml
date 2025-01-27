@@ -49,7 +49,9 @@
       msg: "Min is: {{ numbers | min }}, Max is: {{ numbers | max}}" 
 
   - name: check ipaddress is valid or not
+    tags:
+    - ipcheck
     vars:
-      ipss: "1124242"
+      ip: "355.93.273.16"
     ansible.builtin.debug:
-      msg: "{{ ipss | ansible.utils.ipaddr }}"                         
+      msg: "ip is {{ ip | ansible.utils.ipaddr }}"                         
