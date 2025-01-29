@@ -27,3 +27,4 @@
       security_group: "{{ sg_id }}"
       instance_type: "{{ instan_type }}"
     loop: "{{ instances }}"  
+    register: "{{ ec2_info }}"
