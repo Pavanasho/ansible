@@ -6,6 +6,7 @@
     snet_id: subnet-0d56b3423d6bb3c28
     sg_id: sg-0eb2d229328151677
     instan_type: t3.micro
+    ZONE: "dpak.online"
     instances:
     - mysql
     - backend
@@ -29,6 +30,18 @@
     loop: "{{ instances }}"  
     register: ec2_info
 
-  - name: print the ec2_info
-    ansible.builtin.debug:
-      msg: "{{ec2_info}}"  
+  # - name: print the ec2_info
+  #   ansible.builtin.debug:
+  #     msg: "{{ec2_info}}"  
+
+  - name: create r53 
+    amazon.aws.route53:
+    state: present
+    zone: "{{ ZONE }}"
+    record: "{{item.item}}.{{ZONE}}"
+    type: A
+    ttl: 1
+    value: "{{item.instances[0].private_ip_address}}"
+    wait: true
+    overwrite: true
+  loop: "{{ ec2_info.results }}"  
