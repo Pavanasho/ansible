@@ -2,9 +2,10 @@
   connection: local
   hosts: local
   vars:
-    img_id: "ami-09c813fb71547fc4f"
-    snet_id: "subnet-0d56b3423d6bb3c28" 
-    sg_id: "sg-0eb2d229328151677"
+    img_id: ami-09c813fb71547fc4f
+    snet_id: subnet-0d56b3423d6bb3c28
+    sg_id: sg-0eb2d229328151677
+    instan_type: t3.micro
     instances:
     - mysql
     - backend
@@ -16,8 +17,8 @@
       name: "{{ item }}"
       executable: pip3.9
     loop:
-    - botocore
-    - boto3  
+    - boto3
+    - botocore  
 
   - name: create ec2 servers
     amazon.aws.ec2_instance:
@@ -25,5 +26,5 @@
       image_id: "{{ img_id }}"
       subnet_id: "{{ snet_id }}"
       security_group: "{{ sg_id }}"
-      instance_type: "t3.micro"
+      instance_type: "{{ instan_type }}"
     loop: "{{ instances }}"  
