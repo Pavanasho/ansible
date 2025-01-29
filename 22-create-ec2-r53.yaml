@@ -26,5 +26,5 @@
       subnet_id: "{{ snet_id }}"
       security_group: "{{ sg_id }}"
       instance_type: "{{ instan_type }}"
-      register: "{{ ec2_info }}"
     loop: "{{ instances }}"  
+    register: ec2_info
