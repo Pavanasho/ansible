@@ -3,7 +3,7 @@
   hosts: local
   vars:
     img_id: ami-09c813fb71547fc4f
-    snet_id: subnet-0d56b3423d6bb3c28
+    snet_id: subnet-02895b605b4d2ea66
     sg_id: sg-0eb2d229328151677
     instan_type: t3.micro
     ZONE: "dpak.online"
